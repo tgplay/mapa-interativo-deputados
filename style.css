@@ -1,0 +1,493 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0a1628 0%, #1a2a4a 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    background: #f5f7fb;
+    border-radius: 24px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+}
+
+/* Cabeçalho */
+header {
+    background: linear-gradient(135deg, #0f2b3d 0%, #1b3a4f 100%);
+    color: white;
+    padding: 30px 40px;
+}
+
+.selo-transparencia {
+    display: inline-block;
+    background: rgba(255, 215, 0, 0.2);
+    border: 1px solid #ffd700;
+    border-radius: 50px;
+    padding: 6px 16px;
+    font-size: 0.8em;
+    margin-bottom: 20px;
+}
+
+.selo-transparencia i {
+    color: #ffd700;
+    margin-right: 6px;
+}
+
+header h1 {
+    font-size: 1.8em;
+    margin-bottom: 8px;
+}
+
+header>p {
+    opacity: 0.85;
+    margin-bottom: 25px;
+}
+
+/* Seletor de deputado */
+.seletor-deputado {
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 25px;
+    backdrop-filter: blur(10px);
+}
+
+.seletor-deputado label {
+    font-weight: bold;
+    margin-right: 15px;
+    font-size: 1em;
+}
+
+.select-deputado {
+    padding: 12px 20px;
+    font-size: 1em;
+    border-radius: 12px;
+    border: none;
+    background: white;
+    width: 260px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.select-deputado:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.info-login {
+    margin-top: 12px;
+    font-size: 0.8em;
+    opacity: 0.75;
+}
+
+.info-login i {
+    margin-right: 6px;
+}
+
+/* Cards de estatísticas */
+.stats {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 16px 24px;
+    flex: 1;
+    min-width: 140px;
+    text-align: center;
+    backdrop-filter: blur(5px);
+    transition: transform 0.3s;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.stat-card i {
+    font-size: 1.8em;
+    color: #ffd700;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.stat-card span {
+    display: block;
+    font-size: 0.8em;
+    opacity: 0.85;
+    margin-bottom: 5px;
+}
+
+.stat-card strong {
+    font-size: 1.6em;
+    display: block;
+}
+
+/* Conteúdo principal */
+.main-content {
+    display: flex;
+    gap: 24px;
+    padding: 30px 40px;
+    background: #f5f7fb;
+    flex-wrap: wrap;
+}
+
+.mapa-leaflet {
+    flex: 2;
+    min-width: 400px;
+    height: 550px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    border: 2px solid #fff;
+}
+
+.info-panel {
+    flex: 1;
+    min-width: 300px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.panel-header {
+    background: #1b3a4f;
+    color: white;
+    padding: 15px 20px;
+    font-weight: bold;
+}
+
+.panel-header i {
+    margin-right: 8px;
+    color: #ffd700;
+}
+
+#info-content {
+    padding: 20px;
+    max-height: 490px;
+    overflow-y: auto;
+}
+
+.placeholder {
+    text-align: center;
+    color: #999;
+    padding: 50px 20px;
+}
+
+.placeholder i {
+    font-size: 3em;
+    margin-bottom: 15px;
+    color: #ccc;
+}
+
+/* Cards de informações no painel */
+.info-card {
+    animation: fadeIn 0.3s ease;
+}
+
+.info-card h3 {
+    color: #1b3a4f;
+    font-size: 1.4em;
+    margin-bottom: 15px;
+    border-left: 4px solid #ffd700;
+    padding-left: 12px;
+}
+
+.total-municipio {
+    background: linear-gradient(135deg, #e8f4f8, #d4eaf1);
+    padding: 12px;
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #1b3a4f;
+}
+
+.recurso-detalhe {
+    background: #f8f9fc;
+    border-radius: 12px;
+    padding: 14px;
+    margin-bottom: 12px;
+    border-left: 3px solid #ffd700;
+    transition: all 0.2s;
+}
+
+.recurso-detalhe:hover {
+    background: #f0f4fa;
+    transform: translateX(3px);
+}
+
+.recurso-detalhe .titulo {
+    font-weight: bold;
+    color: #1b3a4f;
+    margin-bottom: 8px;
+}
+
+.recurso-detalhe .valor {
+    color: #2e7d32;
+    font-weight: bold;
+    font-size: 1.1em;
+    margin: 6px 0;
+}
+
+.recurso-detalhe .beneficiario {
+    color: #666;
+    font-size: 0.85em;
+    margin: 6px 0;
+}
+
+.recurso-detalhe .situacao {
+    display: inline-block;
+    padding: 4px 12px;
+    background: #ffd700;
+    color: #1b3a4f;
+    border-radius: 20px;
+    font-size: 0.75em;
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+/* Lista de recursos */
+.lista-section {
+    padding: 0 40px 40px 40px;
+    background: #f5f7fb;
+}
+
+.lista-section h2 {
+    color: #1b3a4f;
+    margin-bottom: 20px;
+    font-size: 1.4em;
+}
+
+.lista-section h2 i {
+    margin-right: 10px;
+    color: #ffd700;
+}
+
+.filtros {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.search-box {
+    flex: 2;
+    position: relative;
+}
+
+.search-box i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+}
+
+.search-input {
+    width: 100%;
+    padding: 12px 15px 12px 45px;
+    font-size: 14px;
+    border: 2px solid #e0e4e8;
+    border-radius: 12px;
+    transition: all 0.3s;
+    font-family: inherit;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #ffd700;
+    box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.2);
+}
+
+.filtro-select {
+    flex: 1;
+    min-width: 180px;
+    padding: 12px 15px;
+    border: 2px solid #e0e4e8;
+    border-radius: 12px;
+    background: white;
+    cursor: pointer;
+}
+
+.btn-limpar {
+    padding: 12px 20px;
+    background: #e0e4e8;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 500;
+}
+
+.btn-limpar:hover {
+    background: #cbd2d9;
+    transform: translateY(-2px);
+}
+
+.lista-recursos {
+    display: grid;
+    gap: 12px;
+    max-height: 500px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.recurso-item {
+    background: white;
+    border-radius: 14px;
+    padding: 16px;
+    transition: all 0.2s;
+    border: 1px solid #e0e4e8;
+    cursor: pointer;
+}
+
+.recurso-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+    border-color: #ffd700;
+}
+
+.recurso-item h3 {
+    color: #1b3a4f;
+    margin-bottom: 10px;
+    font-size: 1em;
+}
+
+.recurso-item h3 i {
+    margin-right: 6px;
+    color: #ffd700;
+    font-size: 0.9em;
+}
+
+.valor-recurso {
+    color: #2e7d32;
+    font-weight: bold;
+    font-size: 1.1em;
+    margin: 6px 0;
+}
+
+.beneficiario-recurso {
+    color: #666;
+    font-size: 0.85em;
+    margin: 4px 0;
+}
+
+.situacao-recurso {
+    display: inline-block;
+    padding: 3px 10px;
+    background: #f0f2f5;
+    border-radius: 15px;
+    font-size: 0.75em;
+    margin-top: 8px;
+}
+
+/* Rodapé */
+footer {
+    background: #1a2a4a;
+    color: white;
+    padding: 25px 40px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.footer-col {
+    flex: 1;
+    font-size: 0.85em;
+    text-align: center;
+}
+
+.footer-col i {
+    font-size: 1.5em;
+    color: #ffd700;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.footer-col strong {
+    display: block;
+    margin-bottom: 5px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .mapa-leaflet {
+        min-width: auto;
+        height: 400px;
+    }
+
+    header {
+        padding: 20px;
+    }
+
+    .select-deputado {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .stats {
+        flex-direction: column;
+    }
+
+    .lista-section {
+        padding: 0 20px 30px 20px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Estilo para os marcadores do mapa */
+.custom-marker {
+    background: none;
+    border: none;
+}
+
+.marker-label {
+    background: #1b3a4f;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-size: 10px;
+    white-space: nowrap;
+}

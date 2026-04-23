@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Administrativo - Mapa Interativo</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .admin-panel {
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+        }
+
+        button {
+            background: #3498db;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #2980b9;
+        }
+
+        .info {
+            background: #d4edda;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="admin-panel">
+        <h1>🔧 Painel Administrativo</h1>
+        <div class="info">
+            ✅ Área restrita - Apenas equipe de comunicação tem acesso<br>
+            📝 Qualquer alteração salva automaticamente no site
+        </div>
+
+        <h2>Editar informações do mapa</h2>
+
+        <div class="form-group">
+            <label>Selecionar região:</label>
+            <select id="regiao-select">
+                <option value="norte">Região Norte</option>
+                <option value="sul">Região Sul</option>
+                <option value="leste">Região Leste</option>
+                <option value="oeste">Região Oeste</option>
+                <option value="centro">Região Centro</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Título do recurso:</label>
+            <input type="text" id="titulo" placeholder="Ex: Aquisição de Trator">
+        </div>
+
+        <div class="form-group">
+            <label>Valor destinado:</label>
+            <input type="text" id="valor" placeholder="R$ 0,00">
+        </div>
+
+        <div class="form-group">
+            <label>Beneficiário:</label>
+            <input type="text" id="beneficiario" placeholder="Prefeitura, ONG, Associação...">
+        </div>
+
+        <div class="form-group">
+            <label>Situação:</label>
+            <select id="situacao">
+                <option>Pago</option>
+                <option>Em execução</option>
+                <option>Aguardando formalização</option>
+                <option>Documentação enviada</option>
+                <option>Entregue</option>
+            </select>
+        </div>
+
+        <button onclick="salvarRecurso()">💾 Salvar recurso</button>
+        <button onclick="visualizarSite()" style="background: #27ae60; margin-left: 10px;">👁️ Visualizar site</button>
+
+        <div style="margin-top: 30px; padding: 20px; background: #ecf0f1; border-radius: 10px;">
+            <h3>📌 Como funciona?</h3>
+            <p>1. Selecione a região<br>
+                2. Preencha os dados do recurso<br>
+                3. Clique em "Salvar" - o mapa é atualizado automaticamente<br>
+                4. A equipe inteira pode editar sem saber programar</p>
+        </div>
+    </div>
+
+    <script>
+        function salvarRecurso() {
+            // Simular salvamento (no projeto real, enviaria para o backend)
+            alert("✅ Recurso salvo com sucesso!\n\n(No projeto real, isso atualizaria o mapa automaticamente)");
+        }
+
+        function visualizarSite() {
+            window.open('index.html', '_blank');
+        }
+    </script>
+</body>
+
+</html>

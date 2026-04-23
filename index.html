@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Mapa Interativo - Transparência Legislativa</title>
+
+    <!-- Leaflet CSS e JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Cabeçalho com selo de transparência -->
+        <header>
+            <div class="selo-transparencia">
+                <i class="fas fa-check-circle"></i> Mandato Transparente
+            </div>
+            <h1>🗺️ Acompanhe os Recursos Destinados</h1>
+            <p>Selecione um parlamentar para visualizar os investimentos nos municípios</p>
+
+            <!-- SELEtor DE DEPUTADO (simula login) -->
+            <div class="seletor-deputado">
+                <label><i class="fas fa-user-check"></i> Deputado(a):</label>
+                <select id="select-deputado" class="select-deputado">
+                    <option value="carlos">✅ Dep. Carlos Silva (PT)</option>
+                    <option value="maria">✅ Dep. Maria Oliveira (PSDB)</option>
+                    <option value="jose">✅ Dep. José Santos (PL)</option>
+                    <option value="ana">✅ Dep. Ana Souza (PSD)</option>
+                </select>
+                <div class="info-login">
+                    <i class="fas fa-shield-alt"></i> Área restrita - Apenas sua equipe vê esses dados
+                </div>
+            </div>
+
+            <!-- Cards de resumo -->
+            <div class="stats">
+                <div class="stat-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Municípios atendidos</span>
+                    <strong id="total-municipios">0</strong>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-dollar-sign"></i>
+                    <span>Total destinado</span>
+                    <strong id="total-geral">R$ 0</strong>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>Projetos em execução</span>
+                    <strong id="total-projetos">0</strong>
+                </div>
+            </div>
+        </header>
+
+        <!-- Mapa e painel -->
+        <div class="main-content">
+            <div id="mapa" class="mapa-leaflet"></div>
+
+            <div id="info-panel" class="info-panel">
+                <div class="panel-header">
+                    <i class="fas fa-info-circle"></i> Detalhes do Município
+                </div>
+                <div id="info-content">
+                    <div class="placeholder">
+                        <i class="fas fa-hand-pointer"></i><br>
+                        Clique em qualquer município<br>
+                        para visualizar os recursos
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lista pesquisável -->
+        <div class="lista-section">
+            <h2><i class="fas fa-list-ul"></i> Detalhamento dos Recursos</h2>
+            <div class="filtros">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="search-input" placeholder="Pesquisar por município, beneficiário ou valor..."
+                        class="search-input">
+                </div>
+                <select id="filtro-situacao" class="filtro-select">
+                    <option value="">📊 Todas as situações</option>
+                    <option value="Pago">✅ Pago</option>
+                    <option value="Em execução">⚙️ Em execução</option>
+                    <option value="Aguardando formalização">⏳ Aguardando formalização</option>
+                    <option value="Entregue">🎯 Entregue</option>
+                    <option value="Em licitação">📑 Em licitação</option>
+                </select>
+                <button id="btn-limpar" class="btn-limpar">
+                    <i class="fas fa-eraser"></i> Limpar filtros
+                </button>
+            </div>
+
+            <div id="lista-recursos" class="lista-recursos">
+                <!-- Carregado via JavaScript -->
+            </div>
+        </div>
+
+        <!-- Rodapé com instruções -->
+        <footer>
+            <div class="footer-content">
+                <div class="footer-col">
+                    <i class="fas fa-edit"></i>
+                    <strong>Equipe de comunicação:</strong> Os dados são editáveis por vocês
+                </div>
+                <div class="footer-col">
+                    <i class="fas fa-chalkboard-user"></i>
+                    <strong>Treinamento incluso:</strong> Vídeo tutorial para gestão autônoma
+                </div>
+                <div class="footer-col">
+                    <i class="fas fa-headset"></i>
+                    <strong>Suporte contínuo:</strong> Disponibilidade para dúvidas
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
