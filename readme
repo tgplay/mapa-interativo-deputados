@@ -1,0 +1,31 @@
+# 🗺️ Mapa Interativo - Transparência Legislativa
+
+Sistema para gestão de recursos públicos destinados por deputados, com visualização georreferenciada e painel administrativo para equipes não técnicas.
+
+## 🎯 Funcionalidades
+
+- **Multi-deputado**: Seletor para visualizar recursos de diferentes parlamentares
+- **Mapa interativo**: Clique no marcador para ver detalhes do município
+- **Informações completas**: Valor, beneficiário, situação do recurso
+- **Lista pesquisável**: Filtre por município, beneficiário ou valor
+- **Responsivo**: Funciona em desktop, tablet e mobile
+- **Design político**: Selo de transparência, cores institucionais
+
+## 🧪 Tecnologias
+
+- HTML5 / CSS3
+- JavaScript (Vanilla)
+- Leaflet.js (mapas interativos)
+- Font Awesome (ícones)
+
+## 📦 Como testar
+
+```bash
+# Clone o repositório
+git clone https://github.com/tgplay/mapa-interativo-transparencia.git
+
+# Entre na pasta
+cd mapa-interativo-transparencia
+
+# Abra o arquivo index.html no navegador
+# (recomendado usar Live Server do VS Code)
